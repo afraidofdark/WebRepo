@@ -47,69 +47,49 @@
         height: 500px; 
     } 
   
-    #localVideo { 
-        width: 150px; 
-        height: 150px; 
+    #userVideo { 
         position: absolute; 
         top: 15px; 
-        right: 15px; 
-    }
-  
-    #remoteVideo { 
-        width: 500px; 
-        height: 500px; 
+        right: 15px;
+        width: 150px;
+        height: 150px; 
     }
   </style>
 </head>
 
 <body class="bg-dark text-white">
-  <div class="container-fluid border border-danger">
+  <div class="container-fluid">
     <div class="row">
       <!-- Banner -->
-      <div class="col-md-4 border border-primary">
-        <div class="d-flex border border-primary">
+      <div class="col-md-4">
+        <div class="d-flex">
             <header class="blog-header">
               <div class="col">
                 <h1>Adeko <small>Video Conferance</small></h1>
               </div>
             </header>
         </div>
+        <!-- Cam Company -->
+        <div class="my-3">
+          <h5 class="card-title">Adeko Representative: <small>Furkan Aytaç</small>
+          </h5>
+        </div>
         <!-- Video I/O -->
-        <!-- Cam Adeko -->
-        <div class="card text-white bg-dark my-3">
+        <div class="card text-dark bg-dark my-3">
           <div class="card-body">
             <div class="embed-responsive embed-responsive-4by3">
               <video class="embed-responsive-item" id="gum-local" autoplay playsinline></video>
-            </div>
-            <div class="card-img-overlay">
-              <h5 class="card-title">Adeko Representative: <small>Furkan Aytaç</small>
-                <hr>
-              </h5>
+              <video id="userVideo" class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></video>
             </div>
           </div>
-          <div class="card-footer" style="z-index: 5;">
+          <div class="card-footer">
             <button id="showVideo" class="btn btn-primary">Show Cam</button>
           </div>
         </div>
         <!-- Cam User -->
-        <div class="card text-white bg-dark" style="max-width: 18rem;">
-          <div class="card-body">
-            <div class="embed-responsive embed-responsive-4by3">
-              <video class="embed-responsive-item" id="gum-local" autoplay playsinline></video>
-            </div>
-            <div class="card-img-overlay">
-              <h5 class="card-title">Your camera
-                <hr>
-              </h5>
-            </div>
-          </div>
-          <div class="card-footer" style="z-index: 5;">
-            <button id="showVideo" class="btn btn-primary">Show Cam</button>
-          </div>
-        </div>
       </div>
       <!-- Image -->
-      <div class="col-md-4 border border-warning"  style="z-index: 9;">
+      <div class="col-md-4"  style="z-index: 9;">
         <div class="card text-white bg-dark">
           <div class="card-body">
             <img data-toggle="magnify" class="img-fluid rounded card-img-top mx-auto d-block" src="media/salerno.jpg" alt="Mirabelle">
@@ -121,7 +101,7 @@
         </div>
       </div>
       <!-- Info -->
-      <div class="col-md-4 border border-primary">
+      <div class="col-md-4">
         <table class="table table-dark table-striped my-3">
           <thead>
             <tr>
