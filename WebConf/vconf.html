@@ -38,23 +38,43 @@
       top: 1em;
       left: 1em;
     }
+		
+    .call-page { 
+        position: relative; 
+        display: block; 
+        margin: 0 auto; 
+        width: 500px; 
+        height: 500px; 
+    } 
+  
+    #localVideo { 
+        width: 150px; 
+        height: 150px; 
+        position: absolute; 
+        top: 15px; 
+        right: 15px; 
+    }
+  
+    #remoteVideo { 
+        width: 500px; 
+        height: 500px; 
+    }
   </style>
 </head>
 
 <body class="bg-dark text-white">
-  <div class="d-flex border border-primary">
-    <div class="row">
-      <header class="blog-header">
-        <div class="col">
-          <h1>Adeko <small>Video Conferance</small></h1>
-        </div>
-      </header>
-    </div>
-  </div>
   <div class="container-fluid border border-danger">
     <div class="row">
-      <!-- Video I/O -->
+      <!-- Banner -->
       <div class="col-md-4 border border-primary">
+        <div class="d-flex border border-primary">
+            <header class="blog-header">
+              <div class="col">
+                <h1>Adeko <small>Video Conferance</small></h1>
+              </div>
+            </header>
+        </div>
+        <!-- Video I/O -->
         <!-- Cam Adeko -->
         <div class="card text-white bg-dark my-3">
           <div class="card-body">
@@ -90,7 +110,7 @@
       </div>
       <!-- Image -->
       <div class="col-md-4 border border-warning"  style="z-index: 9;">
-        <div class="card text-white bg-dark my-3">
+        <div class="card text-white bg-dark">
           <div class="card-body">
             <img data-toggle="magnify" class="img-fluid rounded card-img-top mx-auto d-block" src="media/salerno.jpg" alt="Mirabelle">
           </div>
