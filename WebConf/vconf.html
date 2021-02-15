@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <script src="js/stream.js"></script>
+  <script src = "js/client.js"></script> 
   <script src="js/bootstrap-magnify.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/bootstrap-magnify.min.css">
 
@@ -39,21 +40,31 @@
       left: 1em;
     }
 		
-    .call-page { 
-        position: relative; 
-        display: block; 
-        margin: 0 auto; 
-        width: 500px; 
-        height: 500px; 
-    } 
-  
-    #userVideo { 
-        position: absolute; 
-        top: 15px; 
-        right: 15px;
-        width: 150px;
-        height: 150px; 
-    }
+    video { 
+         background: black; 
+         border: 1px solid gray; 
+      }
+		
+      .call-page { 
+         position: relative; 
+         display: block; 
+         margin: 0 auto; 
+         width: 500px; 
+         height: 500px; 
+      } 
+		
+      #localVideo { 
+         width: 150px; 
+         height: 150px; 
+         position: absolute; 
+         top: 15px; 
+         right: 15px; 
+      }
+		
+      #remoteVideo { 
+         width: 500px; 
+         height: 500px; 
+      }
   </style>
 </head>
 
@@ -75,18 +86,20 @@
           </h5>
         </div>
         <!-- Video I/O -->
-        <div class="card text-dark bg-dark my-3">
-          <div class="card-body">
-            <div class="embed-responsive embed-responsive-4by3">
-              <video class="embed-responsive-item" id="gum-local" autoplay playsinline></video>
-              <video id="userVideo" class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></video>
-            </div>
-          </div>
-          <div class="card-footer">
-            <button id="showVideo" class="btn btn-primary">Show Cam</button>
-          </div>
-        </div>
-        <!-- Cam User -->
+        <div id = "callPage" class = "call-page"> 
+          <video id = "localVideo" autoplay></video> 
+          <video id = "remoteVideo" autoplay></video>
+        
+          <div class = "row text-center"> 
+             <div class = "col-md-12"> 
+                <input id = "callToUsernameInput" type = "text"
+                   placeholder = "username to call" /> 
+                <button id = "callBtn" class = "btn-success btn">Call</button> 
+                <button id = "hangUpBtn" class = "btn-danger btn">Hang Up</button> 
+             </div>	
+          </div> 
+        
+       </div>
       </div>
       <!-- Image -->
       <div class="col-md-4"  style="z-index: 9;">
