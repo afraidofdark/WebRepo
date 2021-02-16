@@ -51,3 +51,45 @@ function send(message) {
 	
    conn.send(JSON.stringify(message)); 
 };
+
+//****** 
+//UI selectors block 
+//****** 
+
+var loginPage = document.querySelector('#loginPage'); 
+var usernameInput = document.querySelector('#usernameInput'); 
+var loginBtn = document.querySelector('#loginBtn'); 
+
+var callPage = document.querySelector('#callPage'); 
+var callToUsernameInput = document.querySelector('#callToUsernameInput');
+var callBtn = document.querySelector('#callBtn'); 
+
+var hangUpBtn = document.querySelector('#hangUpBtn');
+  
+//hide call page 
+callPage.style.display = "none"; 
+ 
+// Login when the user clicks the button 
+loginBtn.addEventListener("click", function (event) { 
+   name = usernameInput.value; 
+	
+   if (name.length > 0) { 
+      send({ 
+         type: "login", 
+         name: name 
+      }); 
+   } 
+	
+});
+ 
+function handleLogin(success) { 
+
+   if (success === false) { 
+      alert("Ooops...try a different username"); 
+   } else { 
+      //display the call page if login is successful 
+      loginPage.style.display = "none"; 
+      callPage.style.display = "block";  
+      //start peer connection 
+   } 
+};
