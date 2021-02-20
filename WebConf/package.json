@@ -1,1 +1,1 @@
-{"name":"webrtc-videochat","version":"0.1.0","description":"webrtc-videochat","author":"Author","license":"BSD-2-Clause","dependencies":{"fs":"^0.0.1-security","https":"^1.0.0","ws":"^7.4.3"}}
+{"name":"webrtc-videochat","version":"0.1.0","description":"webrtc-videochat","author":"Author","license":"BSD-2-Clause","dependencies":{"fs":"^0.0.1-security","https":"^1.0.0","path":"^0.12.7","ws":"^7.4.3"}}

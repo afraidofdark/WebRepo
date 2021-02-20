@@ -2,6 +2,36 @@ run the command from the root "webConf"
 
 node .js/server
 
+Caviate: Before loading a page adjust server adress in the client.js -> WebSocket('wss://192.168.1.44:9090');
+
 make sure you have Live Server extention.
 start Live Server via pressing "golive" on the lower right corner of visual studio code.
 launch the the project "Launch Chrome agains localhost"
+
+ssl steps
+
+steps taken from this site `https://zeropointdevelopment.com/how-to-get-https-working-in-windows-10-localhost-dev-environment/`
+
+1)
+Download a openssl for windows. Binaries can be found here `https://slproweb.com/products/Win32OpenSSL.html`
+
+2)
+Create ssl folder inside the workspace, get in the folder and crate admin powershell there.
+execute:
+openssl genrsa -des3 -out rootSSL.key 2048
+openssl req -x509 -new -nodes -key rootSSL.key -sha256 -days 1024 -out rootSSL.pem
+windows + r /  mmc / add certificates / computer account / Third party root certification authorities / import rootSSL.pem
+
+3)
+windows\system32\drivers\etc\hosts file - add new line below;
+127.0.0.1   client-1.local
+
+4)
+openssl req -new -sha256 -nodes -out client-1.local.csr -newkey rsa:2048 -keyout client-1.local.key -subj "/C=AU/ST=NSW/L=Sydney/O=Client One/OU=Dev/CN=client-1.local/emailAddress=hello@client-1.local"
+openssl x509 -req -in client-1.local.csr -CA rootSSL.pem -CAkey rootSSL.key -CAcreateserial -out client-1.local.crt -days 500 -sha256 -extensions "authorityKeyIdentifier=keyid,issuer\n basicConstraints=CA:FALSE\n keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment\n  subjectAltName=DNS:client-1.local"
+
+5)
+Live Server (*) Extension Settings / workspace
+Host: client-1.local
+HTTPS: Enabled
+Set key & cert created in workspace\ssl

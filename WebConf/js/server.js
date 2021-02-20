@@ -1,22 +1,20 @@
 const https = require('https');
 const fs = require('fs');
 const WebSocket = require('ws');
+const path = require('path');
+
+const cwd = process.cwd();
+const certificatePath = path.normalize(`${cwd}/ssl/client-1.local.crt`);
+const keyPath = path.normalize(`${cwd}/ssl/client-1.local.key`);
 
 const server = new https.createServer({
-   cert: fs.readFileSync('D:/WebRepo/WebConf/ssl/client-1.local.crt'),
-   key: fs.readFileSync('D:/WebRepo/WebConf//ssl/client-1.local.key')
+   cert: fs.readFileSync(certificatePath),
+   key: fs.readFileSync(keyPath)
  });
+
  const wss = new WebSocket.Server({ server });
  server.listen(9090);
-
  
-/*//require our websocket library 
-var WebSocketServer = require('ws').Server; 
-
-//creating a websocket server at port 9090 
-var wss = new WebSocketServer({port: 9090}); */
-
-
 //all connected to the server users 
 var users = {};
   
