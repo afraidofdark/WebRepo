@@ -16,3 +16,7 @@ WebConf/node_modules/ws/lib/stream.js
 WebConf/node_modules/ws/lib/validation.js
 WebConf/node_modules/ws/lib/websocket-server.js
 WebConf/node_modules/ws/lib/websocket.js
+WebConf/ssl/
+WebConf/node_modules/
+WebConf/.vscode/
+WebConf/package-lock.json

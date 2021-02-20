@@ -1,8 +1,21 @@
-//require our websocket library 
+const https = require('https');
+const fs = require('fs');
+const WebSocket = require('ws');
+
+const server = new https.createServer({
+   cert: fs.readFileSync('D:/WebRepo/WebConf/ssl/client-1.local.crt'),
+   key: fs.readFileSync('D:/WebRepo/WebConf//ssl/client-1.local.key')
+ });
+ const wss = new WebSocket.Server({ server });
+ server.listen(9090);
+
+ 
+/*//require our websocket library 
 var WebSocketServer = require('ws').Server; 
 
 //creating a websocket server at port 9090 
-var wss = new WebSocketServer({port: 9090}); 
+var wss = new WebSocketServer({port: 9090}); */
+
 
 //all connected to the server users 
 var users = {};
@@ -101,7 +114,7 @@ wss.on('connection', function(connection) {
          case "leave": 
             console.log("Disconnecting from", data.name); 
             var conn = users[data.name]; 
-            conn.otherName = null; 
+            connection.otherName = null; 
 				
             //notify the other user so he can disconnect his peer connection 
             if(conn != null) {
