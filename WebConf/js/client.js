@@ -108,7 +108,7 @@ async function getMedia(constraints) {
          "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }]
       };
 
-      yourConn = new webkitRTCPeerConnection(configuration);
+      yourConn = new RTCPeerConnection(configuration);
 
       // setup stream listening 
       yourConn.addStream(stream);
